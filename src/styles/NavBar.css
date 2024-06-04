@@ -1,0 +1,36 @@
+.logo_name {
+    display: inline-block;
+    color: #fff;
+    margin: 0 1em;
+}
+
+.nav_list {
+    display: inline-flex;
+}
+
+.nav_item {
+    display: inline-block;
+    margin: 0 2em;
+    
+}
+
+.nav_link {
+    text-decoration: none;
+    color: #fff;
+    transition: 200ms;
+    font-size: 1em;
+}
+
+.nav_link:hover {
+    color: #a9ffa8;
+}
+
+.nav_wrapper { 
+    display: inline-block;
+}
+
+.header_container {
+    background-color: #333;
+    padding: 0.5em;
+
+}

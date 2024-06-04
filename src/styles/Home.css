@@ -1,0 +1,55 @@
+.main_text {
+    padding: 1em 0;
+    font-size: 3em;
+    font-weight: 700;
+}
+
+.login_button_wrapper {
+    display: flex;
+    justify-content: space-around;
+    list-style: none;
+}
+
+.login_button {
+    padding: 0.3em;
+    text-decoration: none;
+    font-size: 2em;
+    /* background-color: #a9ffa8; */
+    border: #000 solid ;
+    border-radius: 5px;
+    color: #000;
+    font-weight: 500;
+}
+
+.login_list {
+    margin: 1em;
+}
+
+.main_login {
+    text-align: center;
+}
+
+.main_image {
+    width: 30em;
+    display: block;
+    transition: 200ms;
+    margin-bottom: 2em;
+}
+
+.login_button:hover {
+    color: #555;
+    border-color: #555;
+}
+
+.dim {
+    filter: brightness(0.5);
+}
+
+.selected {
+    transition: 200ms;
+    transform: translate(0,-10px);
+}
+
+.main_bg {
+
+}
