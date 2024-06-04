@@ -1,6 +1,6 @@
 import { Link, useParams } from "react-router-dom"
 import "../styles/Register.css"
-import { ChangeEventHandler, useState } from "react"
+import {  useState } from "react"
 import { User } from "../interfaces/userInterface"
 import { userType } from "../interfaces/userInterface"
 import { sendUserInfoToAPI } from "../services/userApi"
