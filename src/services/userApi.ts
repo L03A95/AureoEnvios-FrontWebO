@@ -31,18 +31,20 @@ const sendUserInfoToAPI = async (user: User, userType: string) => {
 
         const data = await response.json();
         console.log(data);
+        return data
     } catch (error) {
         console.error(error);
+        throw error
     }
 };
 
 const getUserInfoFromAPI = async (user: UserLogin) => {
-    const userFormData = new FormData();
-    userFormData.append('username', user.username);
-    userFormData.append('password', user.password);
-    userFormData.append('grant_type', user.grant_type);
-
     try {
+        const userFormData = new FormData();
+        userFormData.append('username', user.username);
+        userFormData.append('password', user.password);
+        userFormData.append('grant_type', user.grant_type);
+
         const response = await fetch(`${AUTH_ENDPOINT}/token`, {
             method: 'POST',
             headers: {
@@ -76,4 +78,47 @@ const getUserInfoFromAPI = async (user: UserLogin) => {
     }
 };
 
-export { sendUserInfoToAPI, getUserInfoFromAPI };
+const useRefreshToken = async (token: string | undefined) => {
+    try {
+        if (!token) {
+            throw new Error('No token provided');
+        }
+        
+        const tokenFormData = new FormData();
+        tokenFormData.append('refresh_token', token);
+        tokenFormData.append('grant_type', 'refresh_token');
+
+        const response = await fetch(AUTH_ENDPOINT + '/token', {
+            method: 'POST',
+            headers: {
+                'Authorization': 'Basic'+ btoa('front_app:12345'),
+                // 'Content-Type': 'application/x-www-form-urlencoded',
+            },
+            body: tokenFormData,
+        });
+
+        if (!response.ok) {
+            let errorMessage = `status: ${response.status}, response: ${response.statusText}`;
+            try {
+                const errorData = await response.json();
+                errorMessage += `, message: ${errorData.error_description}`;
+            } catch (jsonError) {
+                console.error('Error parsing JSON:', jsonError);
+            };
+            throw new Error(errorMessage);
+        };
+
+        const contentType = response.headers.get('content-type');
+        if (!contentType || !contentType.includes('application/json')) {
+            throw new TypeError('Received response is not in JSON format');
+        };
+
+        const data = await response.json();
+        console.log(data);
+        return data; // -> Devolvemos la respuesta :)
+    } catch (error) {
+        throw error;
+    }
+}
+
+export { sendUserInfoToAPI, getUserInfoFromAPI, useRefreshToken };

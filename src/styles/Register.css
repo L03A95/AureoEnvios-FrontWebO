@@ -33,6 +33,7 @@
     background-color: #fff;
     font-size: 1em;
     margin: 1em;
+    cursor: pointer;
 }
 
 .form_wrapper {

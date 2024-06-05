@@ -25,6 +25,12 @@
     background-color: #fff;
     font-size: 1em;
     margin: 1em;
+    cursor: pointer;
+    transition: 200ms ease;
+}
+
+.login_btn:hover {
+    border-radius: 50px;
 }
 
 .form_wrapper {

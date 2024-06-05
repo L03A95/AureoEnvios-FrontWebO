@@ -32,8 +32,7 @@ export default function Login() {
                     type: 'Bearer',
                 },
                 refresh: response.refresh_token || null, // habrán muchos nulls simplemente por la seguridad de tipado de TS
-                expiresAt: response.expires_in ?? null,
-                userState: { user: response.user } || null
+                userState: { user: response } || null
             });
 
             if (authSuccess) {
