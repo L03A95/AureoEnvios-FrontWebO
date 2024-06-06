@@ -30,10 +30,8 @@ const sendUserInfoToAPI = async (user: User, userType: string) => {
         }
 
         const data = await response.json();
-        console.log(data);
         return data
     } catch (error) {
-        console.error(error);
         throw error
     }
 };
@@ -57,7 +55,7 @@ const getUserInfoFromAPI = async (user: UserLogin) => {
             let errorMessage = `status: ${response.status}, response: ${response.statusText}`;
             try {
                 const errorData = await response.json();
-                errorMessage += `, message: ${errorData.error_description}`;
+                errorMessage += `, message: ${errorData.message}`;
             } catch (jsonError) {
                 console.error('Error parsing JSON:', jsonError);
             }
@@ -70,10 +68,8 @@ const getUserInfoFromAPI = async (user: UserLogin) => {
         }
 
         const data = await response.json();
-        console.log(data);
         return data; // -> Devolvemos la respuesta :)
     } catch (error) {
-        console.log(error);
         throw error; // -> Devolvemos error :(
     }
 };
@@ -88,10 +84,10 @@ const useRefreshToken = async (token: string | undefined) => {
         tokenFormData.append('refresh_token', token);
         tokenFormData.append('grant_type', 'refresh_token');
 
-        const response = await fetch(AUTH_ENDPOINT + '/token', {
+        const response = await fetch(`${AUTH_ENDPOINT}/token`, {
             method: 'POST',
             headers: {
-                'Authorization': 'Basic'+ btoa('front_app:12345'),
+                'Authorization': 'Basic '+ btoa('front_app:12345'),
                 // 'Content-Type': 'application/x-www-form-urlencoded',
             },
             body: tokenFormData,
@@ -114,7 +110,6 @@ const useRefreshToken = async (token: string | undefined) => {
         };
 
         const data = await response.json();
-        console.log(data);
         return data; // -> Devolvemos la respuesta :)
     } catch (error) {
         throw error;

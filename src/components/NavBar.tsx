@@ -7,9 +7,7 @@ export default function NavBar () {
     const authUser = useAuthUser()
     const signOut = useSignOut()
 
-    // const name = authUser.user.username;
-
-    console.log(authUser)
+    
 
     return <header className="header_container">
         <h1 className="logo_name">Aureo Envios</h1>

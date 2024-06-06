@@ -18,15 +18,13 @@ const refresh = createRefresh({
   interval: 10, // The time in sec to refresh the Access token
   refreshApiCallback: async (param: { authToken?: string; refreshToken?: string; authUserState: unknown; }): Promise<RefreshTokenCallbackResponse<unknown>> => {
     try {
-      const response = await useRefreshToken(param.refreshToken);
-      const data = await response.json();
+      const data = await useRefreshToken(param.refreshToken);
       console.log('refreshing');
       return {
         isSuccess: true,
         newAuthToken: data.access_token,
-        // newRefeshToken: data.refresh,
         newAuthTokenExpireIn: data.expires_in,
-        newRefreshTokenExpiresIn: 60
+        newRefreshTokenExpiresIn: data.expires_in
       };
     } catch (error) {
       console.error(error);
