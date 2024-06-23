@@ -7,6 +7,11 @@ export default function NavBar () {
     const authUser = useAuthUser()
     const signOut = useSignOut()
 
+    const handleSignOut = () => { 
+        signOut();
+        window.location.href = '/';
+    }
+
     
 
     return <header className="header_container">
@@ -15,7 +20,7 @@ export default function NavBar () {
             <ul className="nav_list">
                 <li className="nav_item"><Link to="/" className="nav_link">Home</Link></li>
                 {authUser ? <li className="nav_item"><Link to="/profile" className="nav_link">Perfil</Link></li> : <></>}
-                {authUser ? <li className="nav_item nav_link" onClick={signOut}>Sign out</li> : <></>}
+                {authUser ? <li className="nav_item nav_link" onClick={handleSignOut}>Sign out</li> : <></>}
                 
             </ul>
         </nav>

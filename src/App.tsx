@@ -9,6 +9,8 @@ import createStore from 'react-auth-kit/createStore';
 import refresh from './services/refresh';
 import Profile from './components/Profile';
 
+
+
 // Creamos la store con los parámetros adecuados :)
 const store = createStore({
   authName: '_auth',
@@ -27,7 +29,7 @@ function App() {
           <NavBar />
           <Routes>
             <Route path="/" element={<Home/>}/>
-            <Route path="/login/:userType" element={<Login/>}/>
+            <Route path="/login" element={<Login/>}/>
             <Route path="/register/:userType" element={<Register/>}/>
             <Route path="/profile" element={<Profile/>}/>
           </Routes>

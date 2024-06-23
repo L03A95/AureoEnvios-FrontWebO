@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link, useParams, useNavigate } from "react-router-dom";
+import { Link  } from "react-router-dom";
 import "../styles/Login.css";
 import { UserLogin } from "../interfaces/userInterface";
 import { getUserInfoFromAPI } from '../services/userApi';
@@ -8,8 +8,8 @@ import { Toaster, toast } from 'sonner';
 
 export default function Login() {
     const [user, setUser] = useState<UserLogin>({ username: "", password: "", grant_type: "password" });
-    const { userType } = useParams<{ userType: string }>();
-    const navigate = useNavigate();
+    // const { userType } = useParams<{ userType: string }>();
+    // const navigate = useNavigate();
     const signIn = useSignIn();
     const [isChecked, setIsChecked] = useState(false);
 
@@ -43,7 +43,7 @@ export default function Login() {
                     console.log("Opción de mantener sesión creada es falso. No se creará la cookie para recordar la sesión");
                 }
 
-                navigate('/');
+                window.location.href = '/';
             } else {
                 throw new Error('Fallo en el inicio de sesión');
             }
@@ -93,22 +93,27 @@ export default function Login() {
                     />
                     <label htmlFor="session-checkbox" className="cursor-pointer flex items-center">
                         <div className="w-6 h-6 border-2 rounded-md border-cyan-500 flex items-center justify-center mr-2 focus:outline-none">
-                            {isChecked && (
+                            {/* {isChecked && (
                                 <svg
                                     className="w-4 h-4 text-cyan-500 fill-current"
                                     viewBox="0 0 24 24"
                                 >
                                     <path d="M20 6L9 17l-5-5" />
                                 </svg>
-                            )}
+                            )} */}
                         </div>
                         Mantener sesión iniciada
                     </label>
                 </div>
                 <button type="submit" className="login_btn" onClick={submitUser}>Enviar</button>
                 <span>
-                    ¿No tienes cuenta? <Link to={userType === "driver" ? "/register/driver" : "/register/user"}>
-                        Crear cuenta como {userType === "driver" ? "conductor" : "cliente"}
+                    ¿No tienes cuenta? 
+                    <Link to="/register/driver">
+                        Crear cuenta como proveedor
+                    </Link>
+                    <br />
+                    <Link to="/register/user">
+                        Crear cuenta como cliente
                     </Link>
                 </span>
             </form>

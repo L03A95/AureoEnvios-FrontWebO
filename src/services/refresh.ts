@@ -2,7 +2,7 @@ import { useRefreshToken } from './userApi';
 import createRefresh from 'react-auth-kit/createRefresh';
 
 // Define the expected response type for better type checking
-type RefreshTokenCallbackResponse<T> = {
+type RefreshTokenCallbackResponse = {
   isSuccess: true;
   newAuthToken: string;
   newAuthTokenExpireIn: number;
@@ -16,7 +16,7 @@ type RefreshTokenCallbackResponse<T> = {
 
 const refresh = createRefresh({
   interval: 10, // The time in sec to refresh the Access token
-  refreshApiCallback: async (param: { authToken?: string; refreshToken?: string; authUserState: unknown; }): Promise<RefreshTokenCallbackResponse<unknown>> => {
+  refreshApiCallback: async (param: { authToken?: string; refreshToken?: string; authUserState: unknown; }): Promise<RefreshTokenCallbackResponse> => {
     try {
       const data = await useRefreshToken(param.refreshToken);
       console.log('refreshing');
@@ -24,7 +24,7 @@ const refresh = createRefresh({
         isSuccess: true,
         newAuthToken: data.access_token,
         newAuthTokenExpireIn: data.expires_in,
-        newRefreshTokenExpiresIn: data.expires_in
+        newRefreshTokenExpiresIn: data.expires_in * 2
       };
     } catch (error) {
       console.error(error);
@@ -35,5 +35,7 @@ const refresh = createRefresh({
     }
   }
 });
+
+
 
 export default refresh;

@@ -66,7 +66,7 @@ export default function Login () {
                 <input type="text" placeholder="Celular" className="login_input" onChange={handleChange} name="celular" value={user.credenciales.celular}/>
             </div>
             <button type="submit" className="login_btn" onClick={submitUser}>Enviar</button>
-            <span>¿Ya tienes una cuenta? <Link to={param.userType === "driver" ? "/login/driver" : "/login/user"}>Inicia sesion como {param.userType === "driver" ? "conductor" : "cliente"}</Link></span>
+            <span>¿Ya tienes una cuenta? <Link to="/login">Inicia sesion</Link></span>
         </form>
     </div>
 }

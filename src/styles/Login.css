@@ -15,22 +15,32 @@
     width: max-content;
     font-size: 1em;
     margin: 0.5em;
+    width: 20em;
+    padding: 0.5em 0.9em;
+    background-color: #f0f0f0;
+    border: none;
+    border-radius: 5px;
+}
+
+.login_input:focus {
+    background-color: #fff;
 }
 
 .login_btn {
-    width: max-content;
+    width: 20em;
+
     padding: 0.5em;
     border: 2px solid #000;
     border-radius: 5px;
     background-color: #fff;
-    font-size: 1em;
+    font-size: 16px;
     margin: 1em;
     cursor: pointer;
     transition: 200ms ease;
 }
 
 .login_btn:hover {
-    border-radius: 50px;
+    border-radius: 20px;
 }
 
 .form_wrapper {
