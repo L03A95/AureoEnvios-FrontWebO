@@ -24,7 +24,7 @@ const refresh = createRefresh({
         isSuccess: true,
         newAuthToken: data.access_token,
         newAuthTokenExpireIn: data.expires_in,
-        newRefreshTokenExpiresIn: data.expires_in * 2
+        newRefreshTokenExpiresIn: 9999999
       };
     } catch (error) {
       console.error(error);

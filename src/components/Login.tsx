@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Link  } from "react-router-dom";
 import "../styles/Login.css";
 import { UserLogin } from "../interfaces/userInterface";
-import { getUserInfoFromAPI } from '../services/userApi';
+import { loginUser } from '../services/userApi';
 import useSignIn from 'react-auth-kit/hooks/useSignIn';
 import { Toaster, toast } from 'sonner';
 
@@ -20,7 +20,7 @@ export default function Login() {
     const submitUser = async (e: React.MouseEvent) => {
         e.preventDefault();
         try {
-            const response = await getUserInfoFromAPI(user);
+            const response = await loginUser(user);
             
             if (!response) {
                 throw new Error('No response from API');
