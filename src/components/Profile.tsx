@@ -92,7 +92,7 @@ export default function Profile () {
 
             <div className="profile_info_container">
                 <p className="user_info_type">Nombres</p>
-                {editProfile ? <input value={newUser?.nombres} onChange={handleInputChange} name="nombres"/> : <span className="user_info_displayer">{user?.nombres ? user?.nombres : "No se econtró información"}</span>}
+                {editProfile ? <input value={newUser?.nombre} onChange={handleInputChange} name="nombre"/> : <span className="user_info_displayer">{user?.nombre ? user?.nombre : "No se econtró información"}</span>}
             </div>
 
             <div className="profile_info_container">

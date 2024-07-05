@@ -6,9 +6,9 @@ const IMAGE_ENDPOINT = import.meta.env.VITE_API_FILE_ENDPOINT;
 const EMAIL_ENDPOINT = import.meta.env.VITE_API_EMAIL_ENDPOINT;
 
 
-const sendUserInfoToAPI = async (user: User, userType: string) => {
+const sendUserInfoToAPI = async (user: User) => {
     try {
-        const response = await fetch(`${ENDPOINT}/persona-${userType}`, {
+        const response = await fetch(`${ENDPOINT}/persona`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
