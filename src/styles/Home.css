@@ -1,12 +1,12 @@
 .main_title {
     padding: 0.5em 0;
-    font-size: 64px;
+    font-size: 40px;
     font-weight: 700;
 }
 
 .main_text {
-    margin-bottom: 2em;
-    font-size: 18px;
+    max-width: 600px;
+    font-size: 14px;
 }
 
 .login_button_wrapper {
@@ -29,6 +29,8 @@
 
 .register_button:hover {
     border-radius: 50px;
+    color: #fff;
+    background-color: #000;
 }
 
 .login_button {
@@ -39,11 +41,14 @@
     border-radius: 5px;
     color: #000;
     font-weight: 500;
-    transition: 200ms;
+    transition: 300ms;
 }
 
 .login_button:hover {
     border-radius: 50px;
+    color: #fff;
+    background-color: #000;
+    /* border-color: #fff; */
 }
 
 .login_list {
@@ -52,6 +57,7 @@
 
 .main_login {
     text-align: center;
+
 }
 
 .main_image {
@@ -71,16 +77,51 @@
 }
 
 .background_image {
+    left: auto;
     width: 100%;
-    position: absolute;
-    z-index: -1;
+    max-height: 425px;
+    max-width: 760px;
+    position:absolute;
+    right: 0;
 }
 
 .slogan_container {
-    width: 50em;
-    height: max-content;
-    transform: translate(10em,8em);
-    margin-bottom: 30em;
+    /* height: max-content; */
     padding: 2em;
+    max-width: 600px;
+    z-index: 1;
+    align-self: start;
+}
 
+.section_1 {
+    background-color: rgb(79, 196, 255);
+    height: 500px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    width: 100%;
+    position: relative;
+}
+
+@media screen and (min-width: 1220px) { 
+    .main_title {
+        padding: 0.5em 0;
+        font-size: 48px;
+        font-weight: 700;
+    }
+    
+    .main_text {
+        margin-bottom: 2em;
+        font-size: 16px;
+    }
+    
+    
+    .slogan_container {
+        width: 50em;
+        height: max-content;
+        padding: 2em;
+        max-width: 800px;
+    }
+    
+   
 }

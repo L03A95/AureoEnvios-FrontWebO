@@ -43,7 +43,7 @@ export default function Login() {
                     console.log("Opción de mantener sesión creada es falso. No se creará la cookie para recordar la sesión");
                 }
 
-                window.location.href = '/';
+                window.location.href = '/app';
             } else {
                 throw new Error('Fallo en el inicio de sesión');
             }

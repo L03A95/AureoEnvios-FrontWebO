@@ -18,9 +18,10 @@ export default function NavBar () {
         <h1 className="logo_name">Aureo Envios</h1>
         <nav className="nav_wrapper">
             <ul className="nav_list">
-                <li className="nav_item"><Link to="/" className="nav_link">Home</Link></li>
+                {!authUser ? <li className="nav_item"><Link to="/login" className="nav_link">Iniciar Sesión</Link></li> : <></>}
+                {authUser ? <li className="nav_item"><Link to="/app" className="nav_link">Mapa</Link></li> : <></>}
                 {authUser ? <li className="nav_item"><Link to="/profile" className="nav_link">Perfil</Link></li> : <></>}
-                {authUser ? <li className="nav_item nav_link" onClick={handleSignOut}>Sign out</li> : <></>}
+                {authUser ? <li className="nav_item nav_link" onClick={handleSignOut}>Cerrar Sesión</li> : <></>}
                 
             </ul>
         </nav>

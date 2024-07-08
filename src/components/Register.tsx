@@ -10,6 +10,7 @@ import Verification from "./Register/Verification";
 export default function Register() {
   const param = useParams();
   const [user, setUser] = useState<User>({
+    tipoPersona: 'MORAL',
     tipoUsuario: param.userType === "client" ? userType.CONSUMIDOR : userType.PROVEEDOR,
     credenciales: {
       email: "",
@@ -46,7 +47,7 @@ export default function Register() {
   const submitUser = async (e: React.MouseEvent) => {
     e.preventDefault();
     try {
-      await sendUserInfoToAPI(user, 'fisica').then(() => { setVerification(true) });
+      await sendUserInfoToAPI(user).then(() => { setVerification(true) });
     } catch (error) {
       console.error('Submission error:', error);
     }

@@ -20,7 +20,6 @@ export default function Profile () {
             const response = await getLoggedUser(token, username)
             if (response) {
                 setUser(response)
-                console.log(response)
                 const image = await getProfileImage(logged.user)
                 setProfileImage(image)
             }
@@ -56,7 +55,7 @@ export default function Profile () {
         }
 
         const submitEditedProfile = async () => {
-            await updateLoggedUser(newUser, user?.tipoPersona.toLowerCase() , logged.user.access_token, user?.credenciales.username )
+            await updateLoggedUser(newUser, logged.user.access_token, user?.credenciales.username )
             setEditProfile(false)
             
             window.location.href = '/profile';

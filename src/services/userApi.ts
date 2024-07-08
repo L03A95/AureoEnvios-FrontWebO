@@ -152,9 +152,9 @@ const getLoggedUser = async (token : string, username: string) => {
     }
 }
 
-const updateLoggedUser = async (newUser : any, userType : string, token : string, username : string) => { 
+const updateLoggedUser = async (newUser : any, token : string, username : string) => { 
     try {
-        const response = await fetch(`${ENDPOINT}/persona-${userType}/${username}`, {
+        const response = await fetch(`${ENDPOINT}/persona/${username}`, {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json',

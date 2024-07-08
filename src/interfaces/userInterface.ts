@@ -13,6 +13,7 @@ export enum userType {
 }
 
 export interface User {
+    tipoPersona: string;
     tipoUsuario: userType;
     credenciales: Credenciales;
 };

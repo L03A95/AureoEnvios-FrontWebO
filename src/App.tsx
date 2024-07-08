@@ -8,6 +8,7 @@ import AuthProvider from 'react-auth-kit';
 import createStore from 'react-auth-kit/createStore';
 import refresh from './services/refresh';
 import Profile from './components/Profile';
+import MainMap from './components/Map/MainMap';
 
 
 
@@ -32,6 +33,7 @@ function App() {
             <Route path="/login" element={<Login/>}/>
             <Route path="/register/:userType" element={<Register/>}/>
             <Route path="/profile" element={<Profile/>}/>
+            <Route path="/app" element={<MainMap/>}/>
           </Routes>
         </div>
       </AuthProvider>
